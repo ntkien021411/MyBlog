@@ -1,0 +1,23 @@
+
+.clock {
+    font-size: 175px;
+    width: 1000px;
+    margin: 200px 25% -100px;
+    text-align: center;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    color: #fff;
+  }
+  #day{
+    font-size: 175px;
+    width: 1200px;
+    margin: 200px 25%  -100px;
+    text-align: center;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    color: #fff;
+    margin-left: 20%;
+  }
+  body{
+    background-color: black;
+  }
