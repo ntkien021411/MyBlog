@@ -1,0 +1,406 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: cursive;
+  scroll-behavior: smooth;
+}
+/* Event */
+#subevent {
+  position: absolute;
+  background-color: rgba(171, 119, 136, 0.08);
+  display: none;
+}
+#event:hover #subevent{
+  display: block;
+}
+
+
+
+/* Index */
+/* Button image of me and about me */
+.button {
+  --color: #6a5af9;
+  font-family: "Poppins", sans-serif;
+  color: black;
+  padding: 15px 30px;
+  border-radius: 4px;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 500;
+  outline: none;
+  font-size: 16px;
+  position: relative;
+  isolation: isolate;
+  border: 2px solid black;
+  text-decoration: none;
+  top: 15px;
+}
+
+.button:before {
+  content: "";
+  height: 100%;
+  width: 0;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: var(--color);
+  z-index: -1;
+  transition: width 0.25s ease-in;
+}
+
+.button:hover:before {
+  width: 100%;
+}
+.button:hover {
+  color: #fff;
+}
+
+/* Header css */
+#header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 2;
+}
+#icon_blog {
+  display: inline-block;
+  width: 50px;
+  margin: 20px 50px 0 150px;
+}
+#icon_blog img {
+  width: 100%;
+}
+
+#nav li {
+  display: inline-block;
+  margin: 0 10px 0 10px;
+}
+#nav li a {
+  line-height: 78px;
+  text-decoration: none;
+  color: #222222;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+#changeblue {
+  color: #8490ff !important;
+}
+#navigation {
+  display: inline-block;
+  float: right;
+  margin-right: 250px;
+}
+
+/* Image of Me */
+.Image_Of_Me {
+  background-color: #f7f7fa;
+  margin-top: 78px;
+  padding-bottom: 50px;
+}
+.content h4 {
+  text-transform: uppercase;
+}
+.content {
+  margin-top: 170px;
+}
+.image_me img {
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+  margin-top: 50px;
+}
+.image-1 {
+  animation: flowFromRight;
+  animation-duration: 2s;
+  animation-delay: 0.5;
+  position: relative;
+}
+.content-1 {
+  animation: flowFromLeft;
+  animation-duration: 2s;
+  animation-delay: 0.5;
+  position: relative;
+}
+.content-2 {
+  animation: flowFromRight;
+  animation-duration: 2s;
+  animation-delay: 0.5;
+  position: relative;
+}
+
+@keyframes flowFromRight {
+  from {
+    right: -600px;
+    opacity: 0.5;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes flowFromLeft {
+  from {
+    left: -600px;
+    opacity: 0.5;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+/* About me */
+.image-2 {
+  animation: flowFromLeft;
+  animation-duration: 2s;
+  animation-delay: 0.5;
+  position: relative;
+}
+.About_Me {
+  background-color: #eeeef2;
+  padding-bottom: 50px;
+}
+
+/* Contact */
+.Contact {
+  background-color: #04091e;
+  height: 500px;
+}
+
+.Contact h1 {
+  color: #fff;
+}
+.Address p {
+  color: #fff;
+  font-size: 15px;
+  padding: 10px 10px 5px 0;
+}
+.Something p {
+  color: #fff;
+  font-size: 15px;
+  padding: 10px 10px 5px 0;
+}
+
+.Address {
+  margin-top: 150px;
+}
+.Something {
+  margin-top: 150px;
+}
+.Follow_Me {
+  margin-top: 150px;
+  color: #fff;
+}
+.Follow_Me a {
+  font-size: 20px;
+  margin-top: -75px;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Profile */
+#container_profile {
+  margin-top: 78px;
+  background-color: #eeeef2;
+}
+.block_profile {
+  width: 70%;
+  padding-top: 100px;
+}
+
+.image_profile {
+  height: 250px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 5px solid black;
+  border-radius: 60%;
+  position: relative;
+  animation: flowLeft;
+  animation-duration: 2s;
+  animation-delay: 0.5;
+}
+.button_img {
+  position: relative;
+  animation: flowLeft;
+  animation-duration: 2s;
+  animation-delay: 0.5;
+}
+.Image_profile {
+  margin-top: 30px;
+  border-right: 1px solid #16141bcc;
+}
+
+.profile_field {
+  margin-top: 30px;
+  position: relative;
+  left: 150px;
+}
+.file_hidden {
+  display: none;
+}
+.name,
+.email,
+.phone,
+.gender,
+.address,
+.dob {
+  font-size: 30px;
+  margin-left: 100px;
+  margin-bottom: 30px;
+  position: relative;
+  animation: flowRight;
+  animation-duration: 2s;
+  animation-delay: 0.5;
+}
+label {
+  cursor: pointer;
+}
+
+.btn {
+  position: relative;
+  right: -520px;
+}
+
+.btn button {
+  padding: 10px;
+  background-color: #8490ff;
+  cursor: pointer;
+  margin: 10px;
+}
+
+@keyframes flowRight {
+  from {
+    right: -300px;
+    opacity: 0.5;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes flowUp {
+  from {
+    bottom: -300px;
+    opacity: 0.5;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+@keyframes flowLeft {
+  from {
+    left: -600px;
+    opacity: 0.5;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+.btn_save {
+  display: none;
+  position: relative;
+  animation: flowRight;
+  animation-duration: 2s;
+  animation-delay: 0.5;
+}
+.btn_edit {
+  position: relative;
+  animation: flowUp;
+  animation-duration: 2s;
+  animation-delay: 0.5;
+}
+.btn button:hover {
+  opacity: 0.5;
+}
+
+/* Picture */
+.heading_content {
+  text-align: center;
+  cursor: pointer;
+}
+.heading_content:hover {
+  opacity: 0.5;
+  background-color: rgba(194, 53, 100, 0.05);
+  border-color: rgba(194, 53, 100, 0.1);
+}
+
+.heading_content_img.dpl {
+  display: none;
+}
+.changeBB {
+  background-color: #8490ff;
+}
+.image_content {
+}
+.personal_img img {
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+  padding: 5px;
+}
+.appear_img {
+  display: block;
+  animation: Appear;
+  animation-duration: 1s;
+  animation-delay: 0.5;
+}
+.anime_img img {
+  height: 500px;
+  object-fit: cover;
+  border-radius: 5px;
+  padding: 5px;
+}
+.girl_img img {
+  height: 500px;
+  object-fit: cover;
+  border-radius: 5px;
+  padding: 5px;
+}
+.zodiac_img img{
+    height: 500px;
+    object-fit: cover;
+    border-radius: 5px;
+    padding: 5px;
+}
+.p_img {
+  display: none;
+}
+.a_img {
+  display: none;
+}
+.g_img {
+  display: none;
+}
+.z_img {
+    display: none;
+  }
+@keyframes Appear {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+/* Favorite Food */
+

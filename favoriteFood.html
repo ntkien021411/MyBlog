@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorite Food</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./themify-icons/themify-icons.css" />
+    <link rel="stylesheet" href="./grid.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <div id="header">
+      <!-- begin nav -->
+      <div id="icon_blog" class="">
+        <img src="./Image/IconBlog/5379280.png" alt="" />
+      </div>
+      <div id="navigation">
+        <ul id="nav">
+          <li><a target="#" href="./index.html">Home</a></li>
+          <li><a target="" href="./profile.html">Profile</a></li>
+          <li>
+            <a target="" href="./favoriteFood.html" id="changeblue"
+              >Favorite Food</a
+            >
+          </li>
+          <li>
+            <a target="" href="./picture.html">Picture</a>
+          </li>
+          <li><a target="" href="">Event</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Image of me -->
+    <div class="Image_Of_Me">
+      <div class="image_content container row grid wide">
+        <div class="personal_img c-12 row heading_content_img">
+          <!-- <div class=" c-4">
+            <h5 class="c-12 content-img">Cơm tấm sườn nướng</h5>
+            <img
+              class="c-12 p_img"
+              src="http://static1.bestie.vn/Mlog/UploadThumbs/201711/660x380_1thumnb-20171118023427.jpg"
+              alt=""
+            />
+          </div> -->
+        </div>
+        <!-- <div class="c-12 row">
+          <div class="c-12">
+            <label for="" >Name Food</label>
+            <input type="text" class="content c-4" />
+          </div>
+          <div class="c-12">
+            <label for="" >Link Image</label>
+            <input type="text" class="link_img c-12" />
+          </div>
+          <div class="c-12">
+            <button class="add_food c-12">Add Food</button>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <script>
+      //Hiện dần ảnh
+      function showImg(img) {
+        var personal_imgs = document.querySelectorAll(`.${img}`);
+        var length_p_img = personal_imgs.length;
+        var i = 0;
+        setInterval(() => {
+          if (i < length_p_img) {
+            personal_imgs[i].classList.add("appear_img");
+            personal_imgs[i].classList.remove(img);
+            i++;
+          } else {
+            clearInterval();
+          }
+        }, 500);
+      }
+
+      var btn_add = document.querySelector(".add_food");
+      var content = document.querySelector(".content");
+      var img = document.querySelector(".link_img");
+
+      btn_add.onclick = () => {
+        let configLoad =
+          JSON.parse(localStorage.getItem("Image_Favorite_Food")) || null;
+
+        if (configLoad !== null) {
+          let object_food = {
+            name_food: content.value,
+            img_food: img.value,
+          };
+
+          configLoad.push(object_food);
+          localStorage.setItem(
+            "Image_Favorite_Food",
+            JSON.stringify(configLoad)
+          );
+          console.log(configLoad);
+        } else {
+          let object_food = {
+            name_food: content.value,
+            img_food: img.value,
+          };
+          configLoad.push(object_food);
+          localStorage.setItem(
+            "Image_Favorite_Food",
+            JSON.stringify(configLoad)
+          );
+        }
+        var personal = document.querySelector(".personal_img");
+        personal.innerHTML = "";
+        configLoad.forEach((item) => {
+          let block__content = document.createElement("div");
+          let content_img = document.createElement("h5");
+          let p_img = document.createElement("img");
+
+          block__content.classList.add("c-4");
+          content_img.classList.add("content-img", "c-12");
+          p_img.classList.add("p_img", "c-12");
+
+          content_img.textContent = item.name_food;
+          p_img.src = item.img_food;
+          block__content.appendChild(content_img);
+          block__content.appendChild(p_img);
+          personal.appendChild(block__content);
+
+          showImg("p_img");
+        });
+     
+      };
+
+      document.addEventListener("DOMContentLoaded", function () {
+        
+
+        let configLoad =
+          JSON.parse(localStorage.getItem("Image_Favorite_Food")) || null;
+        if (configLoad !== null) {
+          var personal = document.querySelector(".personal_img");
+          configLoad.forEach((item) => {
+            let block__content = document.createElement("div");
+            let content_img = document.createElement("h5");
+            let p_img = document.createElement("img");
+
+            block__content.classList.add("c-4");
+            content_img.classList.add("content-img", "c-12");
+            p_img.classList.add("p_img", "c-12");
+
+            content_img.textContent = item.name_food;
+            p_img.src = item.img_food;
+            block__content.appendChild(content_img);
+            block__content.appendChild(p_img);
+            personal.appendChild(block__content);
+          });
+        }
+        showImg("p_img");
+      });
+    </script>
+  </body>
+</html>

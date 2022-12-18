@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./themify-icons/themify-icons.css" />
+    <link rel="stylesheet" href="./grid.css" />
+  </head>
+  <body>
+      <!-- Header -->
+      <div id="header">
+        <!-- begin nav -->
+        <div id="icon_blog" class="">
+          <img src="./Image/IconBlog/5379280.png" alt="" />
+        </div>
+        <div id="navigation">
+          <ul id="nav">
+            <li><a target="#" href="./index.html">Home</a></li>
+            <li><a target="" href="./profile.html" id="changeblue">Profile</a></li>
+            <li><a target="" href="./favoriteFood.html">Favorite Food</a></li>
+            <li>
+              <a target=""  href="./picture.html">Picture</a>
+            </li>
+            <li><a target="" href="">Event</a></li>
+          </ul>
+        </div>
+      </div>
+    <div id="container_profile">
+      <div class="block_profile row grid wide">
+        <div class="Image_profile c-4 row">
+          <div class="image_profile c-12"></div>
+          <!-- <div class="button_img c-5 row">
+            <input
+              class="file_hidden c-12"
+              type="file"
+              accept=".jpg,.jpeg,.png"
+            />
+            <button
+              type="button "
+              style="margin-bottom: 20px"
+              class="c-12 button btn_chose_picture"
+            >
+              Chọn ảnh
+            </button>
+            <div class="c-12">Dụng lượng file tối đa 1 MB</div>
+            <div class="c-12">Định dạng:.JPEG, .PNG</div>
+          </div> -->
+        </div>
+
+        <div class="profile_field c-8">
+          <div class="name c-12 row">
+            <label for="name" class="c-4">Name:</label>
+            <input
+              id="nam"
+              type="text"
+              class="c-6"
+              value="Nguyễn Trung Kiên"
+              disabled
+            />
+          </div>
+          <div class="dob c-12 row">
+            <label for="dob" class="c-4">DOB:</label>
+            <input
+              id="dob"
+              type="date"
+              class="c-6"
+              value="Nguyễn Trung Kiên"
+              disabled
+            />
+          </div>
+          <div class="email c-12 row">
+            <label for="eml" class="c-4">Email:</label>
+            <input
+              id="eml"
+              type="email"
+              class="c-6"
+              value="Nguyễn Trung Kiên"
+              disabled
+            />
+          </div>
+          <div class="phone c-12 row">
+            <label for="phone" class="c-4">PhoneNumber:</label>
+            <input id="phone" type="number" class="c-6" disabled />
+          </div>
+          <div class="address c-12 row">
+            <label for="ads" class="c-4">Address:</label>
+            <input
+              id="ads"
+              type="text"
+              class="c-6"
+              value="Nguyễn Trung Kiên"
+              disabled
+            />
+          </div>
+          <div class="gender c-12 row">
+            <h6 class="c-4">Gender:</h6>
+            <div class="choice c-6 row">
+              <div class="choice1 c-3">
+                <input
+                  type="radio"
+                  class="c-6"
+                  id="rdo1"
+                  name="rdo"
+                  value="0"
+                  disabled
+                  checked
+                />
+                <label for="rdo1" class="c-6">Nam</label>
+              </div>
+              <div class="choice2 c-3">
+                <input
+                  type="radio"
+                  class="c-6"
+                  id="rdo2"
+                  name="rdo"
+                  disabled
+                  value="1"
+                />
+                <label for="rdo2" class="c-6">Nữ</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn c-12 row">
+            <button class="btn_edit">Edit</button>
+            <button class="btn_save">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    //Handle btn chọn ảnh
+    let chose_pic_btn = document.querySelector(".btn_chose_picture");
+    let img = document.querySelector(".image_profile");
+
+    //Load thì hiện ảnh
+    document.addEventListener("DOMContentLoaded", function () {
+      img.style.backgroundImage =
+        "url('" +
+        "https://scontent.fhan18-1.fna.fbcdn.net/v/t1.15752-9/317510043_503443155183433_2469875472365605059_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_ohc=KxaE01-V9-sAX_uF3BX&_nc_ht=scontent.fhan18-1.fna&oh=03_AdT0hb2EcGIDGCLuaji7gVvNIDf5tHfZr4XMQTEu8EpRLA&oe=63B52CA0" +
+        "')";
+      let configLoad = JSON.parse(localStorage.getItem("Kiên Profile")) || null;
+      if (configLoad !== null) {
+        fullname.value = configLoad["fullname"];
+        email.value = configLoad["email"];
+        phone.value = configLoad["phone"];
+        address.value = configLoad["address"];
+        let genderNumber = configLoad["gender"];
+        dob.value = configLoad["dob"].toString();
+        var radioBTNs = document.querySelectorAll("input[type=radio]");
+        radioBTNs[genderNumber].checked = true;
+      }
+    });
+
+   
+
+    //INput
+    var fullname = document.querySelector("#nam");
+    var email = document.querySelector("#eml");
+    var phone = document.querySelector("#phone");
+    var address = document.querySelector("#ads");
+    var dob = document.querySelector("#dob");
+
+    var btn_edit = document.querySelector(".btn_edit");
+    var btn_save = document.querySelector(".btn_save");
+    var radioBTNs = document.querySelectorAll("input[type=radio]");
+    btn_edit.onclick = function () {
+      btn_save.style.display = "block";
+      btn_edit.style.display = "none";
+      dob.disabled = false;
+      fullname.disabled = false;
+      email.disabled = false;
+      phone.disabled = false;
+      address.disabled = false;
+      radioBTNs.forEach((item) => {
+        item.disabled = false;
+      });
+    };
+    btn_save.onclick = function () {
+      btn_save.style.display = "none";
+      btn_edit.style.display = "block";
+      dob.disabled = true;
+      fullname.disabled = true;
+      email.disabled = true;
+      phone.disabled = true;
+      address.disabled = true;
+      radioBTNs.forEach((item) => {
+        item.disabled = true;
+      });
+      var config = JSON.parse(localStorage.getItem("Kiên Profile")) || null;
+      if (config !== null) {
+        config["dob"] = dob.value;
+        config["fullname"] = fullname.value;
+        config["email"] = email.value;
+        config["phone"] = phone.value;
+        config["address"] = address.value;
+        radioBTNs.forEach((item) => {
+          if (item.checked === true) {
+            config["gender"] = item.value;
+            // console.log(item.value);
+          }
+        });
+        localStorage.setItem("Kiên Profile", JSON.stringify(config));
+      }
+      // console.log(fullname.value);
+      // console.log(email.value);
+      // console.log(phone.value);
+      // console.log(address.value);
+
+      // var profile_me = {
+      //   fullname: "Nguyễn Trung Kiên",
+      //   age: 20,
+      //   email: "0965824602@gmail.com",
+      //   phone: "0965824602",
+      //   address: "Hà Nội",
+      //   gender: "1",
+      // };
+    };
+  </script>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./clock2.css" />
+  </head>
+  <body>
+    <div id="day"></div>
+    <div class="clock" id="clock"></div>
+    <a id="phaohoa" style="display: none" href="./phaohoa.html"></a>
+    <script>
+      setInterval(showTime, 1000);
+      function showTime() {
+        let time = new Date();
+        let hour = time.getHours();
+        let min = time.getMinutes();
+        let sec = time.getSeconds();
+        am_pm = "AM";
+
+        if (hour > 12) {
+          hour -= 12;
+          am_pm = "PM";
+        }
+        if (hour == 0) {
+          hr = 12;
+          am_pm = "AM";
+        }
+
+        hour = hour < 10 ? "0" + hour : hour;
+        min = min < 10 ? "0" + min : min;
+        sec = sec < 10 ? "0" + sec : sec;
+
+        let currentTime = hour + ":" + min + ":" + sec + am_pm;
+
+        document.getElementById("clock").innerHTML = currentTime;
+        // console.log(hour);
+        // console.log(min);
+        // console.log(sec);
+        // if(hour === "08" && min === 14 && sec === 20){
+        //   clearInterval();
+        //   document.getElementById("phaohoa").click();
+        // }
+      }
+      showTime();
+      let day = new Date();
+      const weekday = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+
+      let dayofweek = weekday[day.getUTCDay()];
+      let stringDay =
+      dayofweek.slice(0,3) +
+        "  " +
+        day.getDate() +
+        "/" +
+        (day.getMonth() + 1) +
+        "/" +
+        day.getFullYear();
+      document.getElementById("day").innerHTML = stringDay;
+      console.log(stringDay);
+    </script>
+  </body>
+</html>

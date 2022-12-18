@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTK BLOG</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./themify-icons/themify-icons.css" />
+    <link rel="stylesheet" href="./grid.css" />
+  </head>
+  <body>
+      <!-- Header -->
+      <div id="header">
+        <!-- begin nav -->
+        <div id="icon_blog" class="">
+          <img src="./Image/IconBlog/5379280.png" alt="" />
+        </div>
+        <div id="navigation">
+          <ul id="nav">
+            <li><a target="#" href="./index.html" id="changeblue">Home</a></li>
+            <li><a target="" href="./profile.html">Profile</a></li>
+            <li><a target="" href="./favoriteFood.html">Favorite Food</a></li>
+            <li>
+              <a target=""  href="./picture.html">Picture</a>
+            </li>
+            <li id="event"><a  target="" href="">Event</a>
+              <ul id="subevent">
+                <li ><a href="./countDown.html">HPNY</a></li>
+                <li ><a href="#">HPBD</a></li>
+                <li ><a href="#">HP</a></li>
+            </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <!-- Image of me -->
+    <div class="Image_Of_Me">
+      <div class="container row grid wide">
+        <div class="content content-1 c-6">
+          <h4>This is me</h4>
+          <h1>Nguyễn Trung Kiên</h1>
+          <p>
+            I'm just a IT boy studying in FPT University , like playing football , food tour and cafe chill in sunday morning 
+          </p>
+          <a href="./profile.html" class="button">View Profile</a>
+        </div>
+        <div class="image_me c-6">
+            <img class="image image-1" src=""
+            data-src="https://scontent.fhan18-1.fna.fbcdn.net/v/t1.15752-9/317744543_820867722498916_2342101317583714920_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_ohc=V7RvqTPirCQAX-Jn_AQ&_nc_ht=scontent.fhan18-1.fna&oh=03_AdS6MTAtMSTwrniIm6lcP9YHY_BD_YyGX3OZD2lqmxFdWw&oe=63B52055" alt="">
+        </div>
+      </div>
+    </div>
+
+    <!-- About me -->
+    <div class="About_Me">
+        <div class="container row grid wide">
+          
+          <div class="image_me c-6">
+              <img src="" class="image image-2" 
+              data-src="https://scontent.fhan18-1.fna.fbcdn.net/v/t1.15752-9/317974651_532179595458204_1121083205354577563_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=ae9488&_nc_ohc=Hf22M--hAtkAX891ZFj&_nc_ht=scontent.fhan18-1.fna&oh=03_AdS9cxV_2qKhe9RfOZonEoOc9P3w84Q0-vZ_0a4LtCf-lA&oe=63B5078E" alt="">
+          </div>
+          <div class="content content-2 c-6">
+            <h4>About me</h4>
+            <h1>PERSONAL DETAILS</h1>
+            <p>
+             I'm just a IT boy studying in FPT University , like playing football , food tour and cafe chill in sunday morning 
+            </p>
+            <a href="./profile.html" class="button">View Profile</a>
+          </div>
+        </div>
+      </div>
+    <!-- Contact -->
+    <div class="Contact">
+        <div class="container row grid wide">
+          
+            <div class="Address c-4">
+                <h1>About Me</h1>
+                <p>
+                   I'm just a IT boy studying in FPT University , like playing football , food tour and cafe chill in sunday morning 
+                  </p>
+                  <p>
+                   I'm just a IT boy studying in FPT University , like playing football , food tour and cafe chill in sunday morning 
+                  </p>
+            </div>
+            <div class="Something c-4">
+                <h1>Something</h1>
+                <p>
+                   I'm just a IT boy studying in FPT University , like playing football , food tour and cafe chill in sunday morning 
+                  </p>
+            </div>
+            <div class="Follow_Me c-4 row">
+                <h1 class="c-12">Follow Me</h1>
+                <a class="c-4" href="https://www.facebook.com/profile.php?id=100034859552099"><i class ="ti-facebook "></i></a>
+                <a class="c-4" href="https://www.instagram.com/kien02933/"><i class ="ti-instagram "></i></a>
+                <a class="c-4" href="https://www.youtube.com/channel/UC7vl90aldoU51_gpVzDJbYA"><i class ="ti-youtube "></i></a>
+
+            </div>
+           
+          </div>
+        </div>
+    </div>
+
+  </body>
+  <script async>
+    window.addEventListener('DOMContentLoaded', () =>{
+        const images = document.querySelectorAll('.image');
+
+        images.forEach (image =>{
+            new IntersectionObserver((entries,observe) =>{
+                entries.forEach (entry =>{
+                    if(entry.isIntersecting){
+                        const img = entry.target;
+                        const dataSrc = img.getAttribute('data-src');
+                        img.setAttribute('src',dataSrc);
+                        img.removeAttribute('data-src');
+                        observe.disconnect();
+                    }
+                })
+            } ).observe(image);
+        });
+    });
+</script>
+</html>
